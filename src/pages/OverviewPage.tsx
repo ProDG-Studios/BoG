@@ -23,7 +23,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Link } from 'react-router-dom';
 
 export function OverviewPage() {
-  const [activeView, setActiveView] = useState<'executive' | 'transparency'>('executive');
+  const [activeView, setActiveView] = useState<'executive' | 'transparency'>('transparency');
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -54,13 +54,13 @@ export function OverviewPage() {
       {/* View Toggle */}
       <Tabs value={activeView} onValueChange={(v) => setActiveView(v as typeof activeView)} className="w-full">
         <TabsList className="grid w-full grid-cols-2 lg:w-auto lg:inline-flex">
-          <TabsTrigger value="executive" className="gap-2">
-            <Eye size={14} />
-            Executive Overview
-          </TabsTrigger>
           <TabsTrigger value="transparency" className="gap-2">
             <Layers size={14} />
             FX Transparency Layers
+          </TabsTrigger>
+          <TabsTrigger value="executive" className="gap-2">
+            <Eye size={14} />
+            Executive Overview
           </TabsTrigger>
         </TabsList>
 
