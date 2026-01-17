@@ -1,114 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Central Bank Remittance Oversight Dashboard Design System */
+/* ═══════════════════════════════════════════════════════════════════════════
+   BANK OF GHANA - FX TRANSPARENCY DASHBOARD
+   Bloomberg-Inspired Financial Terminal Design System
+   ═══════════════════════════════════════════════════════════════════════════ */
 
 @layer base {
   :root {
-    /* Core brand - Deep navy with gold accents (Ghana-inspired) */
-    --background: 220 20% 97%;
-    --foreground: 222 47% 11%;
+    /* Core brand - Ultra-dark with gold/amber accents */
+    --background: 220 25% 6%;
+    --foreground: 210 20% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 220 25% 9%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 210 20% 98%;
 
-    /* Primary - Deep navy blue (regulatory, authoritative) */
-    --primary: 222 47% 15%;
-    --primary-foreground: 45 93% 58%;
+    /* Primary - Gold accent (authority, finance) */
+    --primary: 45 93% 52%;
+    --primary-foreground: 220 25% 6%;
 
-    /* Secondary - Slate gray */
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 222 47% 11%;
+    /* Secondary - Steel blue-gray */
+    --secondary: 220 20% 14%;
+    --secondary-foreground: 210 20% 85%;
 
     /* Muted surfaces */
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 220 20% 12%;
+    --muted-foreground: 215 15% 55%;
 
-    /* Accent - Gold (Ghana national color) */
-    --accent: 45 93% 47%;
-    --accent-foreground: 222 47% 11%;
+    /* Accent - Warm amber */
+    --accent: 38 95% 55%;
+    --accent-foreground: 220 25% 6%;
 
-    /* Status colors */
-    --destructive: 0 72% 51%;
+    /* Status colors - Vibrant for dark backgrounds */
+    --destructive: 0 85% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 142 76% 36%;
+    --success: 152 76% 45%;
     --success-foreground: 0 0% 100%;
 
-    --warning: 38 92% 50%;
-    --warning-foreground: 0 0% 100%;
+    --warning: 38 95% 55%;
+    --warning-foreground: 0 0% 0%;
 
-    --info: 199 89% 48%;
+    --info: 199 95% 55%;
     --info-foreground: 0 0% 100%;
 
-    /* Borders and inputs */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 45 93% 47%;
+    /* Borders and inputs - Subtle but visible */
+    --border: 220 20% 18%;
+    --input: 220 20% 15%;
+    --ring: 45 93% 52%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
-    /* Sidebar - Dark slate */
-    --sidebar-background: 222 47% 11%;
-    --sidebar-foreground: 220 14% 96%;
-    --sidebar-primary: 45 93% 58%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 47% 18%;
-    --sidebar-accent-foreground: 220 14% 96%;
-    --sidebar-border: 222 47% 18%;
-    --sidebar-ring: 45 93% 58%;
+    /* Sidebar - Even darker */
+    --sidebar-background: 220 28% 5%;
+    --sidebar-foreground: 210 15% 85%;
+    --sidebar-primary: 45 93% 55%;
+    --sidebar-primary-foreground: 220 25% 6%;
+    --sidebar-accent: 220 25% 12%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 220 20% 12%;
+    --sidebar-ring: 45 93% 55%;
 
-    /* Custom dashboard tokens */
-    --dashboard-header: 222 47% 11%;
-    --dashboard-header-foreground: 0 0% 100%;
-    --stat-positive: 142 76% 36%;
-    --stat-negative: 0 72% 51%;
-    --stat-neutral: 220 9% 46%;
-    --chart-1: 222 47% 25%;
-    --chart-2: 45 93% 58%;
-    --chart-3: 142 76% 36%;
-    --chart-4: 199 89% 48%;
-    --chart-5: 0 72% 51%;
-    --chart-6: 280 67% 50%;
+    /* Chart palette - Financial terminal inspired */
+    --chart-1: 45 93% 55%;
+    --chart-2: 199 95% 55%;
+    --chart-3: 152 76% 50%;
+    --chart-4: 280 70% 60%;
+    --chart-5: 0 85% 60%;
+    --chart-6: 32 95% 55%;
+
+    /* Premium gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(45, 93%, 52%) 0%, hsl(38, 95%, 55%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(220, 25%, 9%) 0%, hsl(220, 25%, 6%) 100%);
+
+    /* Shadows - Soft glows */
+    --shadow-glow: 0 0 20px rgba(245, 189, 65, 0.15);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.5);
   }
 
   .dark {
-    --background: 222 47% 8%;
-    --foreground: 220 14% 96%;
-
-    --card: 222 47% 11%;
-    --card-foreground: 220 14% 96%;
-
-    --popover: 222 47% 11%;
-    --popover-foreground: 220 14% 96%;
-
-    --primary: 45 93% 58%;
-    --primary-foreground: 222 47% 11%;
-
-    --secondary: 222 47% 18%;
-    --secondary-foreground: 220 14% 96%;
-
-    --muted: 222 47% 18%;
-    --muted-foreground: 220 9% 60%;
-
-    --accent: 45 93% 47%;
-    --accent-foreground: 222 47% 11%;
-
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 222 47% 18%;
-    --input: 222 47% 18%;
-    --ring: 45 93% 47%;
-
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 220 14% 96%;
+    /* Already dark by default */
   }
 }
 
@@ -118,135 +98,363 @@
   }
 
   html {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(245, 189, 65, 0.03), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(59, 130, 246, 0.02), transparent);
+  }
+
+  /* Monospace for financial data */
+  .font-mono {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
   }
 }
 
 @layer components {
+  /* ═══════════════════════════════════════════════════════════════════════════
+     CARD SYSTEM - Glass morphism with subtle borders
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
   .dashboard-card {
-    @apply bg-card rounded-lg border border-border shadow-sm transition-shadow duration-200;
+    @apply relative bg-card/80 backdrop-blur-xl rounded-xl border border-border/60;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dashboard-card::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl pointer-events-none;
+    background: var(--gradient-glass);
   }
 
   .dashboard-card:hover {
-    @apply shadow-md;
+    @apply border-border;
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-2px);
   }
 
+  .dashboard-card-flat {
+    @apply bg-card/60 backdrop-blur-md rounded-xl border border-border/40;
+  }
+
+  /* Premium stat cards */
   .stat-card {
-    @apply dashboard-card p-5 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+    @apply dashboard-card p-6 relative overflow-hidden;
+  }
+
+  .stat-card::after {
+    content: '';
+    @apply absolute top-0 right-0 w-32 h-32 pointer-events-none;
+    background: radial-gradient(circle at top right, rgba(245, 189, 65, 0.05), transparent 70%);
+  }
+
+  .stat-card.variant-success::after {
+    background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.08), transparent 70%);
+  }
+
+  .stat-card.variant-warning::after {
+    background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.08), transparent 70%);
+  }
+
+  .stat-card.variant-info::after {
+    background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 70%);
   }
 
   .stat-value {
-    @apply text-2xl font-bold tracking-tight;
+    @apply text-3xl font-bold tracking-tight bg-gradient-to-br from-foreground to-foreground/80 bg-clip-text;
+  }
+
+  .stat-value-xl {
+    @apply text-4xl font-extrabold tracking-tight;
   }
 
   .stat-label {
-    @apply text-sm font-medium text-muted-foreground;
-  }
-
-  .stat-change-positive {
-    @apply text-xs font-medium text-success flex items-center gap-1;
-  }
-
-  .stat-change-negative {
-    @apply text-xs font-medium text-destructive flex items-center gap-1;
-  }
-
-  .status-badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors;
-  }
-
-  .status-success {
-    @apply status-badge bg-success/10 text-success;
-  }
-
-  .status-warning {
-    @apply status-badge bg-warning/10 text-warning;
-  }
-
-  .status-error {
-    @apply status-badge bg-destructive/10 text-destructive;
-  }
-
-  .status-info {
-    @apply status-badge bg-info/10 text-info;
-  }
-
-  .status-neutral {
-    @apply status-badge bg-muted text-muted-foreground;
-  }
-
-  .nav-item {
-    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200;
-  }
-
-  .nav-item-active {
-    @apply nav-item bg-sidebar-accent text-sidebar-primary shadow-sm;
-  }
-
-  .nav-item-inactive {
-    @apply nav-item text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground;
-  }
-
-  .data-table-header {
-    @apply bg-muted/50 text-xs font-semibold uppercase tracking-wider text-muted-foreground;
-  }
-
-  .module-header {
-    @apply text-lg font-semibold text-foreground;
-  }
-
-  .section-title {
     @apply text-sm font-medium text-muted-foreground uppercase tracking-wider;
   }
 
-  /* Glass morphism effect for special cards */
-  .glass-card {
-    @apply bg-card/80 backdrop-blur-sm rounded-lg border border-border/50 shadow-lg;
+  /* ═══════════════════════════════════════════════════════════════════════════
+     STATUS INDICATORS - Glowing badges
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold uppercase tracking-wide;
+    transition: all 0.2s ease;
   }
 
-  /* Gradient text for emphasis */
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  .status-success {
+    @apply status-badge bg-success/15 text-success border border-success/30;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
   }
 
-  /* Animated border glow */
-  .glow-border {
+  .status-warning {
+    @apply status-badge bg-warning/15 text-warning border border-warning/30;
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+  }
+
+  .status-error {
+    @apply status-badge bg-destructive/15 text-destructive border border-destructive/30;
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+  }
+
+  .status-info {
+    @apply status-badge bg-info/15 text-info border border-info/30;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+
+  .status-neutral {
+    @apply status-badge bg-muted text-muted-foreground border border-border;
+  }
+
+  /* Live pulse indicator */
+  .live-pulse {
     @apply relative;
   }
 
-  .glow-border::before {
+  .live-pulse::before {
     content: '';
-    @apply absolute -inset-px rounded-lg bg-gradient-to-r from-accent/20 to-primary/20 -z-10 blur-sm;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+    @apply absolute inset-0 rounded-full bg-success animate-ping opacity-75;
   }
 
-  /* Staggered animation delays for lists */
+  /* ═══════════════════════════════════════════════════════════════════════════
+     NAVIGATION - Sleek sidebar
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200;
+  }
+
+  .nav-item-active {
+    @apply nav-item bg-gradient-to-r from-primary/20 to-primary/5 text-primary border-l-2 border-primary;
+    box-shadow: inset 0 0 20px rgba(245, 189, 65, 0.1);
+  }
+
+  .nav-item-inactive {
+    @apply nav-item text-sidebar-foreground/60 hover:bg-sidebar-accent/60 hover:text-sidebar-foreground;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     DATA TABLES - Financial terminal style
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  .data-table-header {
+    @apply bg-muted/40 text-[11px] font-bold uppercase tracking-widest text-muted-foreground/80 border-b border-border;
+  }
+
+  .data-table-row {
+    @apply border-b border-border/40 transition-colors duration-150;
+  }
+
+  .data-table-row:hover {
+    @apply bg-muted/30;
+  }
+
+  .data-cell-mono {
+    @apply font-mono text-sm tabular-nums;
+  }
+
+  .data-cell-positive {
+    @apply text-success font-semibold;
+  }
+
+  .data-cell-negative {
+    @apply text-destructive font-semibold;
+  }
+
+  .data-cell-neutral {
+    @apply text-muted-foreground;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     HEADERS & TYPOGRAPHY
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  .module-header {
+    @apply text-lg font-bold text-foreground tracking-tight;
+  }
+
+  .section-title {
+    @apply text-xs font-bold text-muted-foreground uppercase tracking-[0.2em];
+  }
+
+  .page-title {
+    @apply text-2xl font-bold tracking-tight bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text;
+  }
+
+  .page-subtitle {
+    @apply text-sm text-muted-foreground leading-relaxed;
+  }
+
+  /* Gold accent text */
+  .text-gold {
+    @apply text-primary;
+    text-shadow: 0 0 20px rgba(245, 189, 65, 0.3);
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     PREMIUM EFFECTS
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  /* Glass morphism panels */
+  .glass-panel {
+    @apply bg-card/40 backdrop-blur-2xl rounded-2xl border border-white/5;
+    box-shadow: 
+      0 4px 24px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  /* Glow effects */
+  .glow-gold {
+    box-shadow: 0 0 30px rgba(245, 189, 65, 0.2);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+  }
+
+  .glow-info {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Gradient borders */
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute -inset-[1px] rounded-xl bg-gradient-to-r from-primary/50 via-transparent to-info/50 -z-10;
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.03) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     ANIMATIONS
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out forwards;
+  }
+
+  /* Stagger delays */
   .stagger-1 { animation-delay: 50ms; }
   .stagger-2 { animation-delay: 100ms; }
   .stagger-3 { animation-delay: 150ms; }
   .stagger-4 { animation-delay: 200ms; }
   .stagger-5 { animation-delay: 250ms; }
+}
 
-  /* Custom scrollbar */
+@layer utilities {
+  /* Custom scrollbar - minimal */
   .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 4px;
+    height: 4px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    @apply bg-muted/30 rounded-full;
+    @apply bg-transparent;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40;
+    @apply bg-border/50 rounded-full;
   }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-border;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Tabular numbers for financial data */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Text gradients */
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-primary via-amber-400 to-primary bg-clip-text text-transparent;
+  }
+
+  .text-gradient-cool {
+    @apply bg-gradient-to-r from-info via-cyan-400 to-info bg-clip-text text-transparent;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COMPONENT OVERRIDES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Recharts customization */
+.recharts-default-tooltip {
+  @apply !bg-card/95 !backdrop-blur-xl !border-border !rounded-xl !shadow-xl;
+}
+
+.recharts-tooltip-label {
+  @apply !text-foreground !font-semibold;
+}
+
+.recharts-legend-item-text {
+  @apply !text-muted-foreground;
+}
+
+/* Focus states */
+*:focus-visible {
+  @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary/30 text-foreground;
 }
