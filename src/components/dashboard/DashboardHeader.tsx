@@ -14,9 +14,10 @@ interface DashboardHeaderProps {
   title: string;
   subtitle?: string;
   breadcrumbs?: { label: string; href?: string }[];
+  actions?: React.ReactNode;
 }
 
-export function DashboardHeader({ title, subtitle, breadcrumbs }: DashboardHeaderProps) {
+export function DashboardHeader({ title, subtitle, breadcrumbs, actions }: DashboardHeaderProps) {
   const currentDate = new Date().toLocaleDateString('en-GB', {
     weekday: 'long',
     day: 'numeric',
@@ -51,6 +52,8 @@ export function DashboardHeader({ title, subtitle, breadcrumbs }: DashboardHeade
       </div>
 
       <div className="flex items-center gap-3">
+        {/* Custom Actions */}
+        {actions}
         {/* Date/Time Display */}
         <div className="hidden md:flex flex-col items-end text-sm">
           <span className="font-medium">{currentDate}</span>
