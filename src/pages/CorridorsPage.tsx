@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { Zap, TrendingUp, Globe, Network, BarChart3, Filter } from 'lucide-react';
+import { Zap, TrendingUp, Globe, Network, BarChart3, Filter, Map } from 'lucide-react';
 import {
   Table,
   TableBody,
@@ -17,6 +17,7 @@ import { corridorData } from '@/data/mockData';
 import { ComminglingMap } from '@/components/dashboard/ComminglingMap';
 import { FXMarketSegments } from '@/components/dashboard/FXMarketSegments';
 import { DashboardHeader } from '@/components/dashboard/DashboardHeader';
+import { CorridorFlowMap } from '@/components/dashboard/CorridorFlowMap';
 
 const COLORS = {
   bank: 'hsl(222, 47%, 25%)',
@@ -26,7 +27,7 @@ const COLORS = {
 };
 
 export function CorridorsPage() {
-  const [activeTab, setActiveTab] = useState('corridors');
+  const [activeTab, setActiveTab] = useState('flowmap');
   const [riskFilter, setRiskFilter] = useState<'all' | 'High' | 'Medium' | 'Low'>('all');
 
   const formatCurrency = (value: number) => {
@@ -57,7 +58,11 @@ export function CorridorsPage() {
 
       {/* Tab Navigation */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 lg:w-auto lg:inline-flex">
+        <TabsList className="grid w-full grid-cols-4 lg:w-auto lg:inline-flex">
+          <TabsTrigger value="flowmap" className="gap-2">
+            <Map size={14} />
+            <span className="hidden sm:inline">Flow Map</span>
+          </TabsTrigger>
           <TabsTrigger value="corridors" className="gap-2">
             <Globe size={14} />
             <span className="hidden sm:inline">Corridors</span>
@@ -71,6 +76,19 @@ export function CorridorsPage() {
             <span className="hidden sm:inline">FX Segments</span>
           </TabsTrigger>
         </TabsList>
+
+        {/* Flow Map Tab */}
+        <TabsContent value="flowmap" className="mt-6 space-y-6">
+          <div className="dashboard-card p-6">
+            <div className="mb-6">
+              <h3 className="module-header">Global Remittance Flow Map</h3>
+              <p className="text-sm text-muted-foreground mt-1">
+                Interactive visualization of inbound remittance corridors to Ghana with volume indicators
+              </p>
+            </div>
+            <CorridorFlowMap />
+          </div>
+        </TabsContent>
 
         {/* Corridors Tab */}
         <TabsContent value="corridors" className="mt-6 space-y-6">
