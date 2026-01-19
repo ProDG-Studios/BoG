@@ -7,7 +7,10 @@ import {
   ArrowRight,
   TrendingUp,
   Eye,
-  Layers
+  Layers,
+  BarChart3,
+  Gauge,
+  Shield
 } from 'lucide-react';
 import { StatCard } from '@/components/dashboard/StatCard';
 import { RAGIndicator } from '@/components/dashboard/RAGIndicator';
@@ -17,13 +20,16 @@ import { DashboardHeader } from '@/components/dashboard/DashboardHeader';
 import { LiveIndicator } from '@/components/dashboard/LiveIndicator';
 import { QuickActions } from '@/components/dashboard/QuickActions';
 import { FXTransparencyLayers } from '@/components/dashboard/FXTransparencyLayers';
+import { FXStabilityCockpit } from '@/components/dashboard/FXStabilityCockpit';
+import { NAFEMDashboard } from '@/components/dashboard/NAFEMDashboard';
+import { ReturnsCompliance } from '@/components/dashboard/ReturnsCompliance';
 import { dashboardStats, monthlyTrends, transactions } from '@/data/mockData';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Link } from 'react-router-dom';
 
 export function OverviewPage() {
-  const [activeView, setActiveView] = useState<'executive' | 'transparency'>('transparency');
+  const [activeView, setActiveView] = useState<'cockpit' | 'transparency' | 'nafem' | 'compliance' | 'executive'>('cockpit');
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -53,14 +59,26 @@ export function OverviewPage() {
 
       {/* View Toggle */}
       <Tabs value={activeView} onValueChange={(v) => setActiveView(v as typeof activeView)} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 lg:w-auto lg:inline-flex">
+        <TabsList className="grid w-full grid-cols-5 lg:w-auto lg:inline-flex">
+          <TabsTrigger value="cockpit" className="gap-2">
+            <Gauge size={14} />
+            <span className="hidden sm:inline">Governor View</span>
+          </TabsTrigger>
           <TabsTrigger value="transparency" className="gap-2">
             <Layers size={14} />
-            FX Transparency Layers
+            <span className="hidden sm:inline">Price Discovery</span>
+          </TabsTrigger>
+          <TabsTrigger value="nafem" className="gap-2">
+            <BarChart3 size={14} />
+            <span className="hidden sm:inline">Market Intelligence</span>
+          </TabsTrigger>
+          <TabsTrigger value="compliance" className="gap-2">
+            <Shield size={14} />
+            <span className="hidden sm:inline">Returns Compliance</span>
           </TabsTrigger>
           <TabsTrigger value="executive" className="gap-2">
             <Eye size={14} />
-            Executive Overview
+            <span className="hidden sm:inline">Executive</span>
           </TabsTrigger>
         </TabsList>
 
@@ -217,9 +235,24 @@ export function OverviewPage() {
           </div>
         </TabsContent>
 
+        {/* FX Stability Cockpit - Governor View */}
+        <TabsContent value="cockpit" className="mt-6">
+          <FXStabilityCockpit />
+        </TabsContent>
+
         {/* FX Transparency Layers Tab */}
         <TabsContent value="transparency" className="mt-6">
           <FXTransparencyLayers />
+        </TabsContent>
+
+        {/* NAFEM Market Intelligence Tab */}
+        <TabsContent value="nafem" className="mt-6">
+          <NAFEMDashboard />
+        </TabsContent>
+
+        {/* Returns Compliance Tab */}
+        <TabsContent value="compliance" className="mt-6">
+          <ReturnsCompliance />
         </TabsContent>
       </Tabs>
     </div>

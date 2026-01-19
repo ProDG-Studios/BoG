@@ -11,7 +11,8 @@ import {
   X,
   Shield,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  TrendingUp
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -22,7 +23,8 @@ interface DashboardLayoutProps {
 }
 
 const navItems = [
-  { path: '/', label: 'Overview', icon: LayoutDashboard },
+  { path: '/', label: 'FX Flows', icon: TrendingUp },
+  { path: '/overview', label: 'Stability Cockpit', icon: LayoutDashboard },
   { path: '/register', label: 'Remittance Register', icon: ListOrdered },
   { path: '/submissions', label: 'Institutional Submissions', icon: Building2 },
   { path: '/settlements', label: 'Settlement & Reconciliation', icon: GitBranch },
